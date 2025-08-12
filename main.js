@@ -1,4 +1,3 @@
-import './style.css';
 import { setupCounter } from './counter.js'
 import './chart-interactions.js';
 import './floating-bubbles.js';
