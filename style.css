@@ -4804,8 +4804,7 @@ body {
   /* 1) Background: fixed -> scroll (zelfde look, geen scroll-repaint) */
 body {
   background-attachment: scroll;
-  background-size: cover;
-}
+  background-size: cover;}
 
 /* 2) Backdrop-filter: minimaliseren en alleen op high-end, anders fallback */
 @supports (backdrop-filter: blur(6px)) {
