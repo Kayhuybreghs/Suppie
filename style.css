@@ -1051,7 +1051,7 @@ body {
 .speed-icon {
     font-size: 15px;
     margin-right: 8px;
-    animation: bounce 4s ease-in-out infinite;
+    animation: bounce 2.5s ease-in-out infinite;
 }
 
 .speed-info {
