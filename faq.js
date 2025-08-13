@@ -5,10 +5,10 @@
 
 (function() {
     'use strict';
-
+    
     // Cache DOM elements for performance
     let domCache = {};
-
+    
     // Initialize DOM cache
     function initDOMCache() {
         domCache = {
@@ -20,7 +20,7 @@
             blogCta: document.querySelector('.s-blog-cta')
         };
     }
-
+    
     // Show FAQ category
     function showFaqCategory(category) {
         // Reset search input
@@ -31,12 +31,12 @@
                 item.classList.remove('hidden-search');
             });
         }
-
+        
         // Hide all categories
         domCache.categoryContents.forEach(cat => {
             cat.classList.add('s-hidden');
         });
-
+        
         // Show selected category
         const selectedCategory = document.getElementById(`s-faq-${category}`);
         if (selectedCategory) {
@@ -47,7 +47,7 @@
             });
         }
     }
-
+    
     // Update tab counts
     function updateTabCounts() {
         const categories = ['algemeen', 'prijzen', 'technisch'];
@@ -60,13 +60,13 @@
             }
         });
     }
-
+    
     // Initialize FAQ item click handlers
     function initializeFaqItems() {
         domCache.faqItems.forEach(faqItem => {
             const questionWrapper = faqItem.querySelector('.s-faq-question-wrapper');
             const expandBtn = faqItem.querySelector('.s-expand-btn');
-
+            
             if (questionWrapper && expandBtn) {
                 questionWrapper.addEventListener('click', () => {
                     faqItem.classList.toggle('expanded');
@@ -75,7 +75,7 @@
             }
         });
     }
-
+    
     // Initialize category tab handlers
     function initializeCategoryTabs() {
         domCache.categoryTabs.forEach(tab => {
@@ -83,11 +83,11 @@
                 // Update active tab
                 domCache.categoryTabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
-
+                
                 // Get category and show FAQs
                 const category = tab.getAttribute('data-category');
                 showFaqCategory(category);
-
+                
                 // Conditional scroll for desktop only
                 setTimeout(() => {
                     if (window.innerWidth > 900 && domCache.blogCta) {
@@ -101,28 +101,28 @@
             });
         });
     }
-
+    
     // FAQ search functionality
     function filterFAQ() {
         const query = domCache.searchInput.value.toLowerCase().trim();
         const words = query.split(' ').filter(w => w.length > 0);
-
+        
         if (words.length > 0) {
             // Show all categories during search
             domCache.categoryContents.forEach(cat => {
                 cat.classList.remove('s-hidden');
             });
-
+            
             // Filter items based on search query
             domCache.faqItems.forEach(item => {
                 const questionElement = item.querySelector('.s-question-content h4');
                 const answerElement = item.querySelector('.s-faq-answer p');
-
+                
                 if (questionElement && answerElement) {
                     const question = questionElement.textContent.toLowerCase();
                     const answer = answerElement.textContent.toLowerCase();
                     const text = question + ' ' + answer;
-
+                    
                     const matches = words.every(word => text.includes(word));
                     item.classList.toggle('hidden-search', !matches);
                 }
@@ -140,7 +140,7 @@
             });
         }
     }
-
+    
     // Initialize search functionality
     function initializeSearch() {
         if (domCache.searchInput && domCache.searchBtn) {
@@ -148,12 +148,12 @@
             domCache.searchBtn.addEventListener('click', filterFAQ);
         }
     }
-
+    
     // Main initialization function for FAQ
-    export function initFaq() { // <-- 'export' toegevoegd
+    function initFaq() {
         // Initialize DOM cache
         initDOMCache();
-
+        
         // Initialize all FAQ functionality
         updateTabCounts();
         showFaqCategory('algemeen');
@@ -161,8 +161,15 @@
         initializeCategoryTabs();
         initializeSearch();
     }
-
-})(); // <-- Let op: deze IIFE sluit hier
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initFaq);
+    } else {
+        initFaq();
+    }
+    
+})();
 
 /**
  * Newsletter Popup Functionality
@@ -170,9 +177,9 @@
  */
 (function () {
     'use strict';
-
-    // Initialize newsletter functionality
-    export function initNewsletter() { // <-- 'export' toegevoegd
+    
+    // Initialize newsletter functionality when DOM is ready
+    function initNewsletter() {
         const form = document.getElementById('sNewsletter');
         const modal = document.getElementById('sNlModal');
         const closeBtn = document.getElementById('sNlClose');
@@ -183,20 +190,20 @@
         }
 
         // Modal helper functions
-        function openModal() {
-            modal.style.display = 'flex';
-            modal.setAttribute('aria-hidden','false');
+        function openModal() { 
+            modal.style.display = 'flex'; 
+            modal.setAttribute('aria-hidden','false'); 
         }
-
-        function closeModal() {
-            modal.style.display = 'none';
-            modal.setAttribute('aria-hidden','true');
+        
+        function closeModal() { 
+            modal.style.display = 'none'; 
+            modal.setAttribute('aria-hidden','true'); 
         }
 
         // Event listeners
         closeBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
+        modal.addEventListener('click', (e) => { 
+            if (e.target === modal) closeModal(); 
         });
 
         // Form submission handler
@@ -206,10 +213,10 @@
 
             try {
                 // Use no-cors mode for cross-origin requests
-                await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    mode: 'no-cors'
+                await fetch(form.action, { 
+                    method: 'POST', 
+                    body: formData, 
+                    mode: 'no-cors' 
                 });
                 form.reset();
                 openModal();
@@ -219,5 +226,12 @@
             }
         });
     }
-
-})(); // <-- Let op: deze IIFE sluit hier
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initNewsletter);
+    } else {
+        initNewsletter();
+    }
+    
+})(); 
