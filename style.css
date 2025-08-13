@@ -4572,8 +4572,8 @@ body {
         transform: translateY(0) scale(1);
     }
 }
-#sNlModal h3 {
-.s-modal-content h3 {
+
+#sNlModal h3, .s-modal-content h3 {
     font-size: 1.75rem;
     font-weight: 800;
     color: #1a202c;
@@ -4582,6 +4582,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 
 #sNlModal p {
     font-size: 1.125rem;
