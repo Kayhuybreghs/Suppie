@@ -3,7 +3,7 @@
   "headers": [
     {
       "source": "/(.*)\\.(js|css|woff2|avif|webp|png|jpg|svg)",
-      "headers": [ 
+      "headers": [
         { "key": "Cache-Control", "value": "public,max-age=31536000,immutable" }
       ]
     },
@@ -17,5 +17,5 @@
   "redirects": [
     { "source": "http://suppie-beta.vercel.app/(.*)", "destination": "https://suppie-beta.vercel.app/$1", "permanent": true }
   ]
-}
+} 
  
