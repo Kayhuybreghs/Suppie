@@ -1,9 +1,26 @@
+// Helper function for debouncing
+function debounce(func, delay) {
+    let timeout;
+    return function(...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), delay);
+    };
+}
+
 class FloatingBubbles {
     constructor() {
         this.bubbles = document.querySelectorAll('.bubble');
         this.container = document.querySelector('.floating-bubbles');
         this.initialPositions = new Map();
         this.isAnimating = true;
+        
+        // Maak een gedebounceerde versie van de resize handler
+        // De delay van 200ms kan worden aangepast indien nodig.
+        this.debouncedResizeHandler = debounce(() => {
+            this.positionBubbles();
+            this.storeInitialPositions();
+        }, 200);
         
         this.init();
     }
@@ -67,10 +84,8 @@ class FloatingBubbles {
     }
     
     addEventListeners() {
-        window.addEventListener('resize', () => {
-            this.positionBubbles();
-            this.storeInitialPositions();
-        });
+        // Gebruik de gedebounceerde handler voor de resize gebeurtenis
+        window.addEventListener('resize', this.debouncedResizeHandler);
     }
     
     handleBubbleClick(event) {
@@ -141,4 +156,3 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(bubble);
     });
 });
- 
