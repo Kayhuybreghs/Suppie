@@ -10,7 +10,3 @@ if (faqSection) {
   observer.observe(faqSection);
 }
 
-const chart = document.getElementById('visitors-chart');
-if (chart) {
-  import('./chart-interactions.js');
-}
