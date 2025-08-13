@@ -1,8 +1,3 @@
-window.addEventListener('DOMContentLoaded', () => {
-  if (document.querySelector('.floating-bubbles')) {
-    import('./floating-bubbles.js');
-  }
-});
 
 const faqSection = document.querySelector('#sFaqSidebar');
 if (faqSection) {
