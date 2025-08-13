@@ -5,9 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --minify=terser",
     "preview": "vite preview"
-    "build": "vite build --minify=terser"
   },
   "devDependencies": {
     "vite": "^5.4.2"
