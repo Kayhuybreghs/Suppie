@@ -6,6 +6,9 @@
     <link rel="icon" href="/favicon.ico" sizes="any">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corner AI - E-Commerce Revolutionized with AI</title>
+  
+  <link rel="modulepreload" href="/faq.js">
+  
  <style id="critical-css">
 /* ===== Mobile critical (first fold) ===== */
 *,*::before,*::after{box-sizing:border-box}
@@ -1160,14 +1163,13 @@ Laat je e-mail achter, ik neem snel contact met je op
         </div>
     </div>
 
-  <link rel="modulepreload" href="/faq.js">
 <script>
   window.addEventListener('load', () => {
     const loadFAQ = () => import('/faq.js').catch(() => {});
     if ('requestIdleCallback' in window) {
       requestIdleCallback(loadFAQ, { timeout: 2000 });
     } else {
-      setTimeout(loadFAQ, 150);
+      setTimeout(loadFAQ, 350);
     }
   });
 </script>
