@@ -1159,9 +1159,20 @@ Laat je e-mail achter, ik neem snel contact met je op
             <button id="sNlClose">Sluiten</button>
         </div>
     </div>
-  <div id="app"></div>
-<script type="module" src="/main.js" defer></script>
 
+  <script>
+  // wacht tot álles klaar is (images, css, fonts)
+  window.addEventListener('load', () => {
+    const loadFAQ = () => import('/faq.js').catch(() => {/* stil falen */});
+
+    // laad nog netter in idle tijd (met timeout fallback)
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadFAQ, { timeout: 2000 });
+    } else {
+      setTimeout(loadFAQ, 150);
+    }
+  });
+</script>
 
 </body>
 </html>
