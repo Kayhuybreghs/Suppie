@@ -5,8 +5,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corner AI - E-Commerce Revolutionized with AI</title>
-  <link rel="stylesheet" href="/style.css">
-    
+ <style id="critical-css">
+/* ===== Mobile critical (first fold) ===== */
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
+  line-height:1.6;
+  color:#333;
+  background:#faf9f7; /* snelle paint; volledige gradient komt later met non-critical CSS */
+  overflow-x:hidden;
+}
+
+/* Layout container */
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 10px; /* mobiel */
+}
+
+/* Header / Nav (mobiel) */
+.header{background:transparent;padding:1rem 0}
+.nav{
+  background:rgba(255,255,255,0.95);
+  border-radius:0;
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);
+  padding:1rem;
+  margin:0;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border:1px solid rgba(255,255,255,0.2);
+}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{
+  background:#ff7f50;color:#fff;width:40px;height:40px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;
+}
+.logo-text{font-size:24px;font-weight:700;color:#2c3e50}
+/* menu is verborgen op mobiel */
+.nav-menu{display:none}
+
+/* Main spacing */
+.main{padding:1.5rem 0 1rem 0;position:relative;z-index:2}
+
+/* Hero sectie (mobiel) */
+.hero-section{
+  display:grid;grid-template-columns:1fr;gap:2rem;text-align:center;margin-bottom:0.8rem;align-items:center;
+}
+.hero-title{
+  font-size:2.8rem;font-weight:700;line-height:1.1;color:#2c3e50;margin:0 0 1rem;
+  text-shadow:0 2px 4px rgba(0,0,0,0.1);letter-spacing:-0.02em;
+}
+.lightning{color:#ff7f50}
+.hero-description{
+  font-size:0.95rem;color:#666;margin:0 0 1rem;line-height:1.6;padding:0 10px;
+}
+
+/* Email CTA blok (input + knop + trial) */
+.email-signup{
+  display:grid;grid-template-columns:1fr;grid-template-rows:auto auto auto;gap:0.8rem;margin-bottom:1rem;
+}
+.email-input{
+  grid-column:1;grid-row:1;
+  width:100%;padding:1rem;border:2px solid #e0e0e0;border-radius:12px;font-size:1rem;background:#fff;
+}
+.email-input:focus{outline:none;border-color:#ff7f50}
+.get-started-btn{
+  grid-column:1;grid-row:2;
+  background:#ff7f50;color:#fff;padding:1rem;border:0;border-radius:12px;
+  font-size:1rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem;
+}
+.get-started-btn:hover{background:#ff6347}
+.trial-text{
+  grid-column:1;grid-row:3;margin:0;color:#27ae60;font-size:.85rem;
+}
+
+/* Kleine helpers die in hero voorkomen */
+.btn-icon{font-size:1.1rem;display:inline-block}
+</style>
+<link rel="preload" href="/style.css" as="style" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/style.css"></noscript>
+
 </head>
   
 
@@ -1077,7 +1159,8 @@ Laat je e-mail achter, ik neem snel contact met je op
         </div>
     </div>
   <div id="app"></div>
-<script type="module" src="/main.js"> defer </script>
+<script type="module" src="/main.js" defer></script>
+
 
 </body>
 </html>
