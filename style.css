@@ -663,7 +663,7 @@ body {
     flex: 1;
     height: 90px;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .line-chart {
