@@ -1,9 +1,9 @@
-class FloatingBubbles {
+export class FloatingBubbles { // <-- 'export' toegevoegd
     constructor() {
         this.bubbles = document.querySelectorAll('.bubble');
         this.container = document.querySelector('.floating-bubbles');
         this.initialPositions = new Map();
-        this.isAnimating = true;
+        this.isAnimating = true; // Standaard op true, Intersection Observer zal dit aanpassen
         
         this.init();
     }
@@ -112,12 +112,9 @@ class FloatingBubbles {
     }
 }
 
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    new FloatingBubbles();
-});
-
 // Performance optimization: Use Intersection Observer for visibility
+// Deze observer blijft hier, omdat het de animatie van de bubbels beheert
+// op basis van hun zichtbaarheid, ongeacht wanneer de klasse wordt geïnitialiseerd.
 const observerOptions = {
     root: null,
     rootMargin: '0px',
@@ -136,6 +133,9 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all bubbles for performance
+// Deze DOMContentLoaded listener blijft ook, omdat de observer de bubbels moet observeren
+// zodra ze in de DOM zijn, ongeacht wanneer de FloatingBubbles klasse zelf wordt geïnitialiseerd.
+// De FloatingBubbles klasse zorgt voor de initiële positionering en event listeners.
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.bubble').forEach(bubble => {
         observer.observe(bubble);
