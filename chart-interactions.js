@@ -1,8 +1,33 @@
+// Helper function for throttling
+function throttle(func, delay) {
+    let timeoutId = null;
+    let lastArgs = null;
+    let lastThis = null;
+
+    return function(...args) {
+        lastArgs = args;
+        lastThis = this;
+
+        if (!timeoutId) {
+            timeoutId = setTimeout(() => {
+                func.apply(lastThis, lastArgs);
+                timeoutId = null;
+                lastArgs = null;
+                lastThis = null;
+            }, delay);
+        }
+    };
+}
+
 class ChartInteractions {
     constructor() {
         this.tooltip = this.createTooltip();
         this.dataPoints = document.querySelectorAll('.data-point');
         this.chartContainer = document.querySelector('.chart-container');
+        
+        // Create a throttled version of updateTooltipPosition
+        // Adjust the delay (e.g., 50ms) as needed for responsiveness vs. performance
+        this.throttledUpdateTooltipPosition = throttle(this.updateTooltipPosition.bind(this), 50);
         
         this.init();
     }
@@ -23,7 +48,8 @@ class ChartInteractions {
         this.dataPoints.forEach(point => {
             point.addEventListener('mouseenter', this.showTooltip.bind(this));
             point.addEventListener('mouseleave', this.hideTooltip.bind(this));
-            point.addEventListener('mousemove', this.updateTooltipPosition.bind(this));
+            // Use the throttled version for mousemove
+            point.addEventListener('mousemove', this.throttledUpdateTooltipPosition);
         });
         
         // Chart hover effects
@@ -42,7 +68,8 @@ class ChartInteractions {
         `;
         
         this.tooltip.classList.add('show');
-        this.updateTooltipPosition(event);
+        // Call the original updateTooltipPosition directly here to ensure immediate positioning on show
+        this.updateTooltipPosition(event); 
     }
     
     hideTooltip() {
@@ -149,4 +176,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (chartContainer) {
         chartObserver.observe(chartContainer);
     }
-}); 
+});
