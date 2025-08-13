@@ -741,11 +741,12 @@ body {
     animation: growPoint 0.5s ease-out forwards;
 }
 
-.data-point:nth-child(1) { animation-delay: 1.8s; }
-.data-point:nth-child(2) { animation-delay: 2.0s; }
-.data-point:nth-child(3) { animation-delay: 2.2s; }
-.data-point:nth-child(4) { animation-delay: 2.4s; }
-.data-point:nth-child(5) { animation-delay: 2.6s; }
+.chart-container .data-point:nth-of-type(1){animation-delay:2.0s;} /* Visueel rechts, verschijnt laatst */
+.chart-container .data-point:nth-of-type(2){animation-delay:1.8s;}
+.chart-container .data-point:nth-of-type(3){animation-delay:1.6s;}
+.chart-container .data-point:nth-of-type(4){animation-delay:1.4s;}
+.chart-container .data-point:nth-of-type(5){animation-delay:1.2s;}
+.chart-container .data-point:nth-of-type(6){animation-delay:1.0s;} /* Visueel links, verschijnt eerst */
 
 .data-point:hover {
     r: 6;
