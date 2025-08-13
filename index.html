@@ -179,29 +179,6 @@ img{ display:block; height:auto; max-width:100% }
       
     </header>
 
-   <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="nav">
-                <div class="logo">
-                    <div class="logo-icon">D</div>
-                    <span class="logo-text">Corner AI</span>
-                </div>
-                <nav class="nav-menu">
-                    <a href="#" class="nav-link">About</a>
-                    <a href="#" class="nav-link">Services <span class="dropdown-arrow">▼</span></a>
-                    <a href="#" class="nav-link">Blog</a>
-                    <a href="#" class="nav-link">Resources</a>
-                    <a href="#" class="nav-link">Contact Us</a>
-                </nav>
-                <div class="auth-buttons">
-                    <a href="#" class="sign-up">Sign Up</a>
-                    <a href="#" class="login">Login</a>
-                </div>
-            </div>
-        </div>
-    </header>
-
     <!-- Main Content -->
     <main class="main">
         <div class="container">
@@ -212,7 +189,8 @@ img{ display:block; height:auto; max-width:100% }
                     </h1>
                     <p class="hero-description">
                         Gratis demo of vrijblijvend gesprek plannen?<br>
-                        Laat je e-mail achter, ik neem snel contact met je op
+                      
+Laat je e-mail achter, ik neem snel contact met je op
                     </p>
                     <div class="email-signup">
                         <input type="email" class="email-input" placeholder="Laat hier je e-mail achter">
@@ -277,10 +255,14 @@ img{ display:block; height:auto; max-width:100% }
                                     </div>
                                 </div>
                             </div>
+                            
+                            
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            
             
             <!-- Info Boxes -->
             <div class="info-boxes">
@@ -480,7 +462,7 @@ img{ display:block; height:auto; max-width:100% }
                             </div>
                         </div>
                     </div>
-                </div>
+                    
             </div>
     </div>
     
@@ -736,7 +718,7 @@ img{ display:block; height:auto; max-width:100% }
     </section>
     
     <!-- Design 1: Diagonale kaarten -->
-    <section class="design-section active">
+    <section class="design-section active" id="design1">
         <div class="container">
             <div class="section-header">
                 <h2>Voor wie is deze aanpak?</h2>
@@ -777,7 +759,7 @@ img{ display:block; height:auto; max-width:100% }
     <!-- FAQ, Blog en Support Sectie -->
     <div class="s-layout-container">
         <!-- FAQ Sidebar Links -->
-        <aside class="s-faq-sidebar" id="sFaqSidebar" inert>
+        <aside class="s-faq-sidebar" id="sFaqSidebar">
             <div class="s-faq-header">
                 <div class="s-faq-title-wrapper">
                     <div class="s-faq-icon">
@@ -1131,7 +1113,7 @@ img{ display:block; height:auto; max-width:100% }
         </main>
 
         <!-- Support Sidebar Rechts -->
-        <aside class="s-support-sidebar" inert>
+        <aside class="s-support-sidebar">
             <!-- Langwerpige CTA -->
             <div class="s-newsletter-cta">
                 <div class="s-cta-content">
@@ -1246,24 +1228,9 @@ img{ display:block; height:auto; max-width:100% }
     } else {
       setTimeout(loadFAQ, 350);
     }
-
-    // Sidebars inert -> actief zodra ze ~20% in beeld zijn
-    const inertEls = document.querySelectorAll('aside[inert]');
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.inert = false;
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.2 });
-      inertEls.forEach(el => io.observe(el));
-    } else {
-      // Fallback: na idle tijd activeren
-      inertEls.forEach(el => { el.inert = false; });
-    }
   });
 </script>
-</body>
+
+
+</body> 
 </html>
