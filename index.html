@@ -90,7 +90,36 @@ body{
 /* Kleine helpers die in hero voorkomen */
 .btn-icon{font-size:1.1rem;display:inline-block}
 </style>
+  
+<style>
+/* === CLS FIX BLOK === */
 
+/* 1) Header/Nav vaste hoogte */
+:root{ --header-h:64px; --nav-h:56px }
+.header{ min-height:var(--header-h) }
+.nav{ min-height:var(--nav-h); align-items:center }
+
+/* 2) Hero */
+.hero-title{ font-size:2.8rem; line-height:1.1; margin:0 0 1rem }
+.hero-description{ font-size:.95rem; line-height:1.6; margin:0 0 1rem }
+
+/* 3) Eerste rij onder hero */
+.info-boxes{ display:grid; gap:16px }
+.info-boxes .info-box{ min-height:320px }
+.graph-container .chart-container{ min-height:90px }
+
+/* 4) Afbeeldingen & SVG */
+.line-chart{ display:block; width:100%; height:auto; aspect-ratio:300/60 }
+img{ display:block; height:auto; max-width:100% }
+
+/* 5) Floating-bubbles container (ook zonder JS) */
+.floating-bubbles{ position:relative; height:180px; overflow:visible }
+.floating-bubbles .bubble{ position:absolute; inset:auto }
+
+/* 6) Icon fonts */
+.fas,.fab,.far{ width:1em; display:inline-block }
+</style>
+  
    <style>
     /* Desktop breedtes */
     @media (min-width: 769px) {
