@@ -966,7 +966,7 @@ body {
 
 .design-pagespeed-friendly h3 {
     color: #C64728;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 500;
     margin: 0;
     text-align: center;
@@ -1049,9 +1049,9 @@ body {
 }
 
 .speed-icon {
-    font-size: 15px;
+    font-size: 12px;
     margin-right: 8px;
-    animation: bounce 2.5s ease-in-out infinite;
+    animation: bounce 2s ease-in-out infinite;
 }
 
 .speed-info {
