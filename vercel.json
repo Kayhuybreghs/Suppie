@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "compress": true,
   "headers": [
     {
       "source": "/(.*)\\.(js|css|woff2|avif|webp|png|jpg|svg)",
