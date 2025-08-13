@@ -1160,12 +1160,10 @@ Laat je e-mail achter, ik neem snel contact met je op
         </div>
     </div>
 
-  <script>
-  // wacht tot álles klaar is (images, css, fonts)
+  <link rel="modulepreload" href="/faq.js">
+<script>
   window.addEventListener('load', () => {
-    const loadFAQ = () => import('/faq.js').catch(() => {/* stil falen */});
-
-    // laad nog netter in idle tijd (met timeout fallback)
+    const loadFAQ = () => import('/faq.js').catch(() => {});
     if ('requestIdleCallback' in window) {
       requestIdleCallback(loadFAQ, { timeout: 2000 });
     } else {
@@ -1173,6 +1171,7 @@ Laat je e-mail achter, ik neem snel contact met je op
     }
   });
 </script>
+
 
 </body>
 </html>
