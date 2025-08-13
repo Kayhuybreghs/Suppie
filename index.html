@@ -92,32 +92,40 @@ body{
 </style>
   
 <style>
-/* === CLS FIX BLOK === */
+/* === CLS FIX BLOK (desktop-only spacing, no mobile changes) === */
 
-/* 1) Header/Nav vaste hoogte */
+/* 1) Header/Nav vaste hoogte (stabiliseert boven de vouw) */
 :root{ --header-h:64px; --nav-h:56px }
 .header{ min-height:var(--header-h) }
 .nav{ min-height:var(--nav-h); align-items:center }
 
-/* 2) Hero */
+/* 2) Hero typografie consistent (geen jump bij /style.css) */
 .hero-title{ font-size:2.8rem; line-height:1.1; margin:0 0 1rem }
 .hero-description{ font-size:.95rem; line-height:1.6; margin:0 0 1rem }
 
-/* 3) Eerste rij onder hero */
-.info-boxes{ display:grid; gap:16px }
-.info-boxes .info-box{ min-height:320px }
-.graph-container .chart-container{ min-height:90px }
+/* 3) Geen geforceerde hoogte meer op de cards */
+.graph-container .chart-container{ min-height:90px }  /* laat ruimte voor je inline SVG */
+/* VERWIJDERD: .info-boxes .info-box{ min-height:320px } */
 
-/* 4) Afbeeldingen & SVG */
+/* 4) Afbeeldingen & SVG stabiel */
 .line-chart{ display:block; width:100%; height:auto; aspect-ratio:300/60 }
 img{ display:block; height:auto; max-width:100% }
 
-/* 5) Floating-bubbles container (ook zonder JS) */
+/* 5) (optioneel) floating-bubbles container uit de flow houden */
 .floating-bubbles{ position:relative; height:180px; overflow:visible }
 .floating-bubbles .bubble{ position:absolute; inset:auto }
 
-/* 6) Icon fonts */
+/* 6) Icon fonts vaste breedte (voorkomt text shift) */
 .fas,.fab,.far{ width:1em; display:inline-block }
+
+/* 7) Alleen op desktop extra whitespace (geen mobile impact) */
+@media (min-width: 769px) {
+  /* meer ruimte tussen navbar en H1/“chat”-hero */
+  .hero-section{ margin-top: 2rem; }
+
+  /* meer lucht boven de 3 info-cards, cards zelf blijven even groot */
+  .info-boxes{ padding-top: 3rem; }
+}
 </style>
   
    <style>
