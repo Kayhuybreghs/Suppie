@@ -1,4 +1,4 @@
-export class ChartInteractions { // <-- 'export' toegevoegd
+class ChartInteractions {
     constructor() {
         this.tooltip = this.createTooltip();
         this.dataPoints = document.querySelectorAll('.data-point');
@@ -100,6 +100,11 @@ export class ChartInteractions { // <-- 'export' toegevoegd
     }
 }
 
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new ChartInteractions();
+});
+
 // Intersection Observer for scroll-triggered animations
 const chartObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -144,4 +149,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (chartContainer) {
         chartObserver.observe(chartContainer);
     }
-});
+}); 
