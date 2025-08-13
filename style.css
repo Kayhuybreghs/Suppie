@@ -659,13 +659,11 @@ body {
     width: 30px;
 }
 
-/* chart-container mag niet clippen en moet iets hoger zijn */
 .design-1 .chart-container {
     flex: 1;
-    min-height: 90px;          /* was height:60px */
+    height: 90px;
     position: relative;
-    overflow: visible;         /* was hidden -> hierdoor werden puntjes/hover schaduw afgesneden */
-    padding: 0 8px 0 8px;      /* kleine binnenmarge zodat punten niet tegen de rand plakken */
+    overflow: visible;
 }
 
 .line-chart {
@@ -708,29 +706,10 @@ body {
 .chart-container .data-point:nth-of-type(5){animation-delay:1.2s;}
 .chart-container .data-point:nth-of-type(6){animation-delay:1.0s;} /* Visueel links, verschijnt eerst */
 
-/* 4) Afbeeldingen & SVG stabiel */
-/* één duidelijke definitie voor de SVG zelf */
-.line-chart {
-    display: block;
-    width: 100%;
-    height: auto;              /* NIET 100% */
-    aspect-ratio: 300 / 60;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-img{ display:block; height:auto; max-width:100% }
-
-/* optioneel: laat schaal-effect staan, nu clippen we niet meer.
-   Wil je 100% safe, zet transform uit of verlaag naar 1.01 */
-.line-chart:hover { transform: scale(1.01); }
-
-/* hover-styling van puntjes blijft oké */
-.data-point { filter: none !important; }
 .data-point:hover {
-  r: 6;
-  fill: #E4592F;
-  filter: drop-shadow(0 4px 8px rgba(255,106,61,.5));
+    r: 6;
+    fill: #E4592F;
+    filter: drop-shadow(0 4px 8px rgba(255, 106, 61, 0.5));
 }
 
 .tooltip {
