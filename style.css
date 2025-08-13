@@ -966,13 +966,13 @@ body {
 
 .design-pagespeed-friendly h3 {
     color: #C64728;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 500;
     margin: 0;
     text-align: center;
     flex: 1;
     position: absolute;
-    left: 35%;
+    left: 50%;
     transform: translateX(-50%);
 }
 
