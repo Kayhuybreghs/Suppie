@@ -18,3 +18,4 @@
     { "source": "http://suppie-beta.vercel.app/(.*)", "destination": "https://suppie-beta.vercel.app/$1", "permanent": true }
   ]
 }
+ 
